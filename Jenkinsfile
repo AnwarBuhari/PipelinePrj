@@ -8,9 +8,13 @@ pipeline {
         }
         stage('Install Node.js') {
             steps{
-                if ! node -v > /dev/null 2>&1; then
-                  echo "Installing Node.js"
-                fi
+              echo "Checking node.js installation"
+            if command -v node &> /dev/null; then
+                echo "node.js installation found"
+            else
+                echo "node.js installation not found. Please install node.js."
+                exit 1
+            fi
             }
         }
     }
