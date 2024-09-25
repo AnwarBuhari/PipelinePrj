@@ -2,18 +2,22 @@
 	  import { AgGridReact } from 'ag-grid-react'; // React Data Grid Component
     import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
     import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
-    import {useState, useRef, useEffect, useMemo, useCallback} from 'react';
+    import {useState, useEffect} from 'react';
     import "ag-grid-community/styles/ag-theme-quartz.css"; // import Quartz theme
     
     const GridExample = () => {
+
         // Row Data: The data to be displayed.
+      // eslint-disable-next-line
         const [rowData, setRowData] = useState([
           { make: "Tesla", model: "Model Y", price: 64950, electric: true },
           { make: "Ford", model: "F-Series", price: 33850, electric: false },
           { make: "Toyota", model: "Corolla", price: 29600, electric: false },
         ]);
         
+
         // Column Definitions: Defines the columns to be displayed.
+       // eslint-disable-next-line
         const [colDefs, setColDefs] = useState([
           { field: 'athlete' },
           { field: 'age' },
@@ -27,6 +31,10 @@
           { field: 'total' }
         ]);
        
+        // const setValue = (newValue) => {
+        //   setColDefs({ ...colDefs, value: newValue })
+        // }
+
         // const selection = useMemo(() => { 
         //     return {
         //       mode: 'multiRow',
@@ -37,6 +45,7 @@
         const paginationPageSize = 500;
         const paginationPageSizeSelector = [1, 200, 500, 1000];
     
+        // eslint-disable-next-line
         const [gridOptions, setGridOptions] = useState([
          { pagination: true,
           rowModelType: 'infinite',
